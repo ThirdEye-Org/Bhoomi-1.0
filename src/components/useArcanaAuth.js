@@ -1,14 +1,14 @@
 import {  AuthProvider } from "@arcana/auth";
-import { useEffect, useState } from "react";
-
+import { useEffect, useState ,useContext} from "react";
+import { userContext } from "../App";
 //Config
-const appAdd = "bf633a57dd19e7f491ada891b1607f79942b98a2";
+const appAdd = "70ab0782a9cad9a68a47b69f12c98c9ab8c5109b";
 
 let auth = new AuthProvider(appAdd);
 
 function useArcanaAuth() {
-  const [initialized, setInitialized] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(false);
+
+    const {initialized,setInitialized,loggedIn,setLoggedIn , setAccount} = useContext(userContext);
 
   const initializeAuth = async () => {
     await auth.init({ position: "right" });
@@ -22,7 +22,6 @@ function useArcanaAuth() {
       const ans =await auth.loginWithSocial(socialType);
       console.log(ans);
       setLoggedIn(true);
-      window.location.reload();
     }
   };
 
@@ -36,10 +35,14 @@ function useArcanaAuth() {
 
   //Getting user Accounts
   const getAccounts = async () => {
-    if (initialized) {
-      // console.log(auth.provider)
-      return await auth.provider.request({ method: "eth_accounts" });
-    }
+      if (initialized) {
+        // console.log(auth.provider)
+        console.log("Start")
+
+        const acc = await auth.provider.request({ method: "eth_accounts" });
+        console.log("end");
+        return acc;
+      }
   };
 
   //Logout
@@ -52,7 +55,7 @@ function useArcanaAuth() {
 
   useEffect(() => {
     const checkLogin = async () => {
-      console.log(auth);
+      // console.log(auth);
       // console.log( )
       await auth.init();
       if (await auth.isLoggedIn()) {
@@ -64,12 +67,10 @@ function useArcanaAuth() {
 
   return {
     initializeAuth,
-    loggedIn,
     login,
     loginWithLink,
     getAccounts,
     logout,
-    initialized,
   };
 }
 

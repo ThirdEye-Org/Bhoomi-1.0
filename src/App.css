@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -39,4 +39,14 @@
 
 body{
   background: white;
+} */
+.profileback::before{
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: linear-gradient(to top,black,rgba(0,0,0,0));
 }

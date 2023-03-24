@@ -4,18 +4,14 @@ import { userContext } from "../App";
 import useArcanaAuth from "./useArcanaAuth";
 
 const Login = () => {
-  const [loading, setLoading] = React.useState(true);
-  const [email, setEmail] = React.useState("");
-  const [account, setAccount] = React.useState("");
+  const{email,setEmail,account,setAccount,initialized,setInitialized , loggedIn,setLoggedIn} = React.useContext(userContext);
 
   const {
     initializeAuth,
-    loggedIn,
     getAccounts,
     login,
     loginWithLink,
     logout,
-    initialized,
   } = useArcanaAuth();
 
   const initialize = async () => {
@@ -37,11 +33,11 @@ const Login = () => {
       if (initialized) {
         if (loggedIn) {
           const acc = await getAccounts();
-          console.log(acc)
           setAccount(acc[0]);
-          setLoading(false);
+          console.log(account)
+          // setLoading(false);
         } else {
-          setLoading(false);
+          // setLoading(false);
         }
       }
     };
@@ -54,8 +50,8 @@ const Login = () => {
 
 
   return (
-    <div className="border border-black rounded-full text-xl p-4" onClick={()=>{login("google")}}>
-      Connect your wallet
+    <div className="font-pSans font-normal text-base flex justify-center items-center text-[rgba(0,0,0,0.80)] cursor-pointer border px-6  border-[rgba(0,0,0,0.80)] rounded-full hover:bg-black hover:text-white" onClick={()=>{login("google")}}>
+      Connect your wallet 
     </div>
   );
 };
