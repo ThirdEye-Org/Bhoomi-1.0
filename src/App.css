@@ -40,6 +40,9 @@
 body{
   background: white;
 } */
+body{
+  overflow: hidden;
+}
 .profileback::before{
   content: "";
   height: 100%;
