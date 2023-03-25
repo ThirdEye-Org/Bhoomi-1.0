@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import bhoomiLogo from "./assets/bhoomiLogo.png";
-import Login from "./Login";
 import { userContext } from "../App";
 import Modal from "./Modal";
 import BuyToken from "./BuyToken";

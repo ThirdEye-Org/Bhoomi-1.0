@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import profilebuilding2 from "./assets/profilebuilding2.png";
-import profileBuilding3 from "./assets/profileBuilding3.png";
+// import profileBuilding2 from "./assets/profileBuilding2.png";
 import profileBuilding1 from "./assets/profileBuilding1.png";
 
 function ValidateProperty() {
@@ -57,7 +57,7 @@ function ValidateProperty() {
             }}
             onMouseLeave={() => setImg2(false)}
           >
-            <img src={profileBuilding3} alt="" className="  h-96 w-72" />
+            <img src={profileBuilding1} alt="" className="  h-96 w-72" />
 
             <div className="bg-gradient-to-t from-[rgba(0,0,0,0.62)]  rounded-2xl  h-96 w-72 top-0 absolute" />
             <div className="absolute bottom-5 w-72 p-4 flex flex-col">
