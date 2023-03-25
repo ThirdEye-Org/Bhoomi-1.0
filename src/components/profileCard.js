@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo from "./assets/icon.png";
 import assetsOwned1 from "./assets/assetsOwned1.png";
 import assetsOwned2 from "./assets/assetsOwned2.png";
 import assetsOwned3 from "./assets/assetsOwned3.png";
 import profileBack from "./assets/profileBack.png";
-import Rectangle from "./assets/Rectangle.png";
+import tokenLogo from "./assets/tokenLogo.png";
+import blueTick from "./assets/blueTick.svg";
+import { userContext } from "../App";
 
 function ProfileCard() {
+  const { account } = useContext(userContext);
+  console.log(account);
   return (
     <div className="scale-75 bg-white w-[612px] h-[862px] shadow-[0_4px_40px_rgba(0,0,0,0.25)] rounded-[50px] flex flex-col items-center relative">
       <div className="absolute ">
@@ -19,6 +23,12 @@ function ProfileCard() {
       </div>
       <div className="w-[296px] h-[47px] font-pSans text-[40px] font-bold mt-10">
         0x12r45...6HJ9
+      </div>
+      <div className="flex text-2xl mt-2 space-x-2">
+        <img src={blueTick} alt="" />
+        <span className="font-pSans italic font-medium text-[rgba(0,0,0,0.5)]">
+          Validator
+        </span>
       </div>
       <div className="flex flex-row space-x-6 mt-16">
         <div>
@@ -69,7 +79,12 @@ function ProfileCard() {
             Bhoomi Tokens
           </div>
           <div className="font-pSans font-bold text-[40px] flex justify-center items-center h-[56px]">
-            69
+            <div className="flex space-x-2">
+              <div>69</div>
+              <div className="flex items-center justify-center">
+                <img src={tokenLogo} alt="" />
+              </div>
+            </div>
           </div>
         </div>
       </div>

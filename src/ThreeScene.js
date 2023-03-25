@@ -1,12 +1,27 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState} from 'react';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-
+import Modal from './components/Modal';
+import BuyToken from './components/BuyToken';
 function ThreeScene() {
   // var scene;
   const mount = useRef(null);
+  const [isModal,setIsModal]=useState(false)
   const [coords,setCoords]=useState({x:0,y:0,z:0})
   var c5, c4;
+  const [rotationSpeed,setrotationSpeed]=useState(0.005);
+
+  const handlemodal=()=>{
+    setIsModal(!isModal)
+    if(isModal)
+    {
+      setrotationSpeed(0.005);
+    }
+    else{
+      setrotationSpeed(0)
+    }
+    console.log("Clicked")
+  }
   useEffect(() => {
     const camera = new THREE.PerspectiveCamera(
       50,
@@ -51,9 +66,9 @@ function ThreeScene() {
         }
       })
     }
-
+    
     function onDocumentMouseDown(event) {
-      event.preventDefault();
+      // event.preventDefault();
 
       raycaster.setFromCamera(mouse, camera);
       var intersects = raycaster.intersectObjects(c5.children);
@@ -63,6 +78,10 @@ function ThreeScene() {
         const result = intersects.find(obj => obj.object.name === "House_World_ap_0")
         // result.object.material.color.r=255;
         result.object.position.x += 30;
+        console.log("clicked on building")
+        handlemodal();
+        // window.alert("Ahu ahu")
+        // }
       }
     }
 
@@ -132,7 +151,7 @@ function ThreeScene() {
     renderer.setSize(window.innerWidth, window.innerHeight);
     function animate() {
       requestAnimationFrame(animate);
-      scene.rotation.y -= ((mouse.x * 8) - camera.rotation.y) * 0.005;
+      scene.rotation.y -= ((mouse.x * 8) - camera.rotation.y) * rotationSpeed;
       // scene.rotation.x -= (-(mouse.y * 3) - camera.rotation.x) * 0.005;
       if (scene.rotation.x < -0.05) scene.rotation.x = -0.05;
       else if (scene.rotation.x > 0.3) scene.rotation.x = 0.3;
@@ -167,6 +186,10 @@ function ThreeScene() {
 
   return (
     <>
+    {
+      isModal &&
+      <Modal children={<BuyToken/>} handlemodal={handlemodal}/>
+      }
       <canvas className='ml-28' ref={mount} />
       <div className="textt absolute top-40 ml-10 flex flex-col gap-4">
         <h1 className='font-semibold text-5xl  font-publica w-[38vw]'>Decentralized solution for <span className='text-[#5A7BF3]'>secure </span>property investment</h1>

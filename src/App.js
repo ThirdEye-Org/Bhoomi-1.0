@@ -1,7 +1,6 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Profile from "./components/Profile";
-import ThreeScene from "./ThreeScene";
 import React from "react";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import Home from "./components/home";
@@ -15,7 +14,6 @@ function App() {
   const [email, setEmail] = React.useState(null);
 
   return (
-    <Router>
       <userContext.Provider
         value={{
           loggedIn,
@@ -25,22 +23,20 @@ function App() {
           account,
           setAccount,
           email,
-          setEmail,
+          setEmail
         }}
       >
-        <div>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/profile" element={<Profile />} />
-            {/* <Route path="/" element={<Home/>}/> */}
-            {/* <Profile /> */}
-            {/* <Model/> */}
-            {/* <Home /> */}
-          </Routes>
+    <Router>
+      <div>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/profile" element={<Profile />} />
+        </Routes>
         </div>
+      </Router>
       </userContext.Provider>
-    </Router>
+
   );
 }
 
