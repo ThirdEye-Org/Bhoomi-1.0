@@ -1,10 +1,9 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Profile from "./components/Profile";
-import ThreeScene from "./ThreeScene";
 import React from "react";
-import Modal from "./components/Modal";
-import ValidateProperty from "./components/validateProperty";
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
+import Home from "./components/home";
 
 export const userContext = React.createContext();
 
@@ -15,27 +14,29 @@ function App() {
   const [email, setEmail] = React.useState(null);
 
   return (
-    <userContext.Provider
-      value={{
-        loggedIn,
-        setLoggedIn,
-        initialized,
-        setInitialized,
-        account,
-        setAccount,
-        email,
-        setEmail,
-      }}
-    >
+      <userContext.Provider
+        value={{
+          loggedIn,
+          setLoggedIn,
+          initialized,
+          setInitialized,
+          account,
+          setAccount,
+          email,
+          setEmail
+        }}
+      >
+    <Router>
       <div>
-        {/* <ThreeScene/>
-        <Navbar /> */}
-        {/* <Profile /> */}
-        {/* <Model/> */}
-        {/* <Home /> */}
-        {/* <Modal/> */}
-      </div>
-    </userContext.Provider>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/profile" element={<Profile />} />
+        </Routes>
+        </div>
+      </Router>
+      </userContext.Provider>
+
   );
 }
 
