@@ -193,12 +193,12 @@ function ThreeScene() {
       }
       <canvas className='ml-28' ref={mount} />
       <div className="textt absolute top-40 ml-10 flex flex-col gap-4">
-        <h1 className='font-semibold text-5xl  font-publica w-[38vw]'>Decentralized solution for <span className='text-[#5A7BF3]'>secure </span>property investment</h1>
-        <p className=' font-publica w-80 opacity-[69%]'>Providing a secure layer over the current real-estate ecosystem for buying land fractionally in the from of ERC-1155 NFTs from the rightful owner decided by
+        <h1 className='font-semibold leading-[45px] text-5xl  font-publica w-[38vw]'>Decentralized solution for <span className='text-[#5A7BF3]  '>secure </span>property investment</h1>
+        <p className=' font-publica text-sm w-80 opacity-[69%]'>Providing a secure layer over the current real-estate ecosystem for buying land fractionally in the form of ERC-1155 NFTs from the rightful owner decided by
           the Proof of ownership.</p>
       </div>
       <div className="h-[100vh] absolute flex w-[100vw] items-center justify-center">
-        <div className="bottomcords mx-auto absolute p-5 bg-white bottom-5 container text-center w-[30%] rounded-lg shadow-lg font-semibold text-md"><p className='opacity-[69%]'>{`${coords.x.toFixed(2)}°N,${(coords.z/100).toFixed(2)}°W`}</p>
+        <div className="bottomcords mx-auto absolute p-4 bg-white bottom-5 container text-center w-[20%] rounded-lg shadow-lg font-semibold text-md"><p className='opacity-[69%]'>{`${coords.x.toFixed(2)}°N,${(coords.z/100).toFixed(2)}°W`}</p>
         </div>
       </div>
     </>

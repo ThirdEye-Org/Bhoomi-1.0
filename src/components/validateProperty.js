@@ -28,6 +28,7 @@ function ValidateProperty() {
             onMouseLeave={() => setImg1(false)}
           >
             <img src={profilebuilding2} alt="" className="  h-96 w-72" />
+            {/* <div class="h-20 absolute bottom-0 left-0 bg-gradient-to-r from-cyan-500 to-blue-500"/> */}
             <div className="bg-gradient-to-t from-[rgba(0,0,0,0.62)]  rounded-2xl  h-96 w-72 top-0 absolute" />
             <div className="absolute bottom-5 w-72 p-4 flex flex-col">
               <div

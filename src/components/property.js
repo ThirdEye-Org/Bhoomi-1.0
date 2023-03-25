@@ -3,8 +3,11 @@ import whiteTick from "./assets/whiteTick.svg";
 import penthouse from "./assets/penthouse.png";
 function Property() {
   return (
-    <div className="flex font-pSans items-center h-[25rem]  space-x-6 overflow-hidden">
-      <img src={penthouse} alt="" className=" h-[24rem]" />
+    <div className="flex font-pSans items-center h-[25rem] p-2 space-x-6 overflow-hidden">
+      <div className=" h-[24rem] w-[16rem]">
+        {" "}
+        <img src={penthouse} alt="" className="h-full w-full" />
+      </div>
       {/* <img src={glow} alt="" className="absolute " /> */}
       <div className="">
         <div className="font-bold text-2xl  text-[rgba(0,0,0,0.7)]">

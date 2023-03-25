@@ -1,12 +1,15 @@
-import React from 'react'
-import ThreeScene from '../ThreeScene';
+import React from "react";
+import ThreeScene from "../ThreeScene";
 
 const Home = () => {
   return (
-    <div className='bg-white' id='homediv'>
+    <div
+      className="bg-white "
+      id="homediv"
+    >
       <ThreeScene />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

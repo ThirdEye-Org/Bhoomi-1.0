@@ -40,10 +40,11 @@
 body{
   background: white;
 } */
-body{
+body {
   overflow: hidden;
 }
-.profileback::before{
+
+.profileback::before {
   content: "";
   height: 100%;
   width: 100%;
@@ -51,13 +52,20 @@ body{
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: linear-gradient(to top,black,rgba(0,0,0,0));
+  background-color: linear-gradient(to top, black, rgba(0, 0, 0, 0));
 }
 
-.modal-blur{
-  background: rgba( 255, 255, 255, 0.15 );
-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-backdrop-filter: blur( 4.5px );
--webkit-backdrop-filter: blur( 4.5px );
-border-radius: 10px;
+.modal-blur {
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4.5px);
+  -webkit-backdrop-filter: blur(4.5px);
+  border-radius: 10px;
+}
+
+.home-container {
+
+  background: linear-gradient(74.99deg, #F7F7F7 5.29%, #FEFEFE 49.67%, #F7F7F7 88.9%);
+  border-radius: 50px;
+
 }

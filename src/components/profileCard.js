@@ -24,11 +24,19 @@ function ProfileCard() {
       <div className="w-[296px] h-[47px] font-pSans text-[40px] font-bold mt-10">
         0x12r45...6HJ9
       </div>
-      <div className="flex text-2xl mt-2 space-x-2">
-        <img src={blueTick} alt="" />
-        <span className="font-pSans italic font-medium text-[rgba(0,0,0,0.5)]">
-          Validator
-        </span>
+      <div className=" text-2xl mt-2 ">
+        {/* Either */}
+        <div className="flex space-x-2">
+          <img src={blueTick} alt="" />
+          <span className="font-pSans italic font-medium text-[rgba(0,0,0,0.5)]">
+            Validator
+          </span>
+        </div>
+        {/* Or */}
+        {/* <span className="font-pSans italic font-medium text-[rgba(0,0,0,0.5)] cursor-pointer">
+         Become a Validator
+        </span> */}
+        
       </div>
       <div className="flex flex-row space-x-6 mt-16">
         <div>
