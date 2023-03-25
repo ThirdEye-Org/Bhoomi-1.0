@@ -1,5 +1,5 @@
-import {  AuthProvider } from "@arcana/auth";
-import { useEffect, useState ,useContext} from "react";
+import { AuthProvider } from "@arcana/auth";
+import { useEffect, useState, useContext } from "react";
 import { userContext } from "../App";
 //Config
 const appAdd = "70ab0782a9cad9a68a47b69f12c98c9ab8c5109b";
@@ -7,11 +7,18 @@ const appAdd = "70ab0782a9cad9a68a47b69f12c98c9ab8c5109b";
 let auth = new AuthProvider(appAdd);
 
 function useArcanaAuth() {
-
-    const {initialized,setInitialized,loggedIn,setLoggedIn , setAccount} = useContext(userContext);
+  const {
+    initialized,
+    setInitialized,
+    loggedIn,
+    setLoggedIn,
+    setAccount,
+    setWeb3state,
+  } = useContext(userContext);
 
   const initializeAuth = async () => {
     await auth.init({ position: "right" });
+    setWeb3state({ provider: auth.provider });
     setInitialized(true);
   };
 
@@ -19,7 +26,7 @@ function useArcanaAuth() {
 
   const login = async (socialType) => {
     if (initialized) {
-      const ans =await auth.loginWithSocial(socialType);
+      const ans = await auth.loginWithSocial(socialType);
       console.log(ans);
       setLoggedIn(true);
     }
@@ -35,14 +42,14 @@ function useArcanaAuth() {
 
   //Getting user Accounts
   const getAccounts = async () => {
-      if (initialized) {
-        // console.log(auth.provider)
-        console.log("Start")
+    if (initialized) {
+      // console.log(auth.provider)
+      console.log("Start");
 
-        const acc = await auth.provider.request({ method: "eth_accounts" });
-        console.log("end");
-        return acc;
-      }
+      const acc = await auth.provider.request({ method: "eth_accounts" });
+      console.log("end");
+      return acc;
+    }
   };
 
   //Logout
