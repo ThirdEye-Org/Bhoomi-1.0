@@ -1,14 +1,13 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Profile from "./components/Profile";
-import React, { useEffect, useState } from "react";
-const { ethers } = require("ethers");
-const { JsonRpcProvider } = require("ethers/providers");
+import React, { useState, useEffect } from "react";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import Home from "./components/home";
+import NFTmint from "./abis/NFTmint.json";
+const Web3 = require("web3");
 
 // ABIs
-import NFTmint from "./abis/NFTmint.json";
 
 export const userContext = React.createContext();
 
@@ -19,41 +18,51 @@ function App() {
   const [email, setEmail] = React.useState(null);
 
   //web3 state
-  const [web3init, setweb3init] = useState({
+  const [web3Api, setWeb3Api] = useState({
     provider: null,
-    signer: null,
-    contract: null,
+    web3: null,
   });
 
-  useEffect(() => {
-    const fetchcontract = async () => {
-      const nftmintAdd = "0x999ffD676e212622478C348F9aAB2860c03EEEfD";
-      const nftmintAbi = NFTmint.abi;
-      try {
-        const provider = new JsonRpcProvider(
-          "https://polygon-mumbai.g.alchemy.com/v2/LHYX8jC-hOYNjZzvd3GdN1ebuegSk6tp"
-        );
-        const signer = provider.getSigner();
-        const nftmintcontract = new ethers.Contract(
-          nftmintAdd,
-          nftmintAbi,
-          signer
-        );
+  console.log(web3Api);
 
-        setweb3init({
-          provider,
-          signer,
-          nftmintcontract,
-        });
-      } catch (error) {
-        console.log(error);
-      }
+  // const [nftmintcontract, setNftmintContract] = useState(null);
+  // useEffect(() => {
+  //   const loadProvider = async () => {
+  //     if (web3Api.provider) {
+  //       setWeb3Api({
+  //         web3: new Web3(web3Api.provider),
+  //         provider: web3Api.provider,
+  //       });
+  //     } else {
+  //       console.error("provider is not setted");
+  //     }
+  //   };
 
-      fetchcontract();
-    };
-  }, [web3init.provider]);
+  //    loadProvider();
+  // }, [web3Api.provider]);
 
-  console.log("Jai sri ram: ", web3init);
+  // useEffect(() => {
+  //   const getAccounts = async () => {
+  //     const accounts = await web3Api.web3.eth.getAccounts();
+  //     console.log(accounts);
+  //     setAccount(accounts[0]);
+  //   };
+  //   web3Api.web3 && getAccounts();
+  // }, [web3Api.web3, account]);
+
+  // //creating a contract instance
+
+  // useEffect(() => {
+  //   const contractInstance = async () => {
+  //     const cont_abi = NFTmint.abi;
+  //     const cont_add = "0x95CF384debE358258D0fFA736B35B9a53A86eA1B";
+  //     let contract = new web3Api.web3.eth.Contract(cont_abi, cont_add);
+  //     console.log(contract);
+
+  //     setNftmintContract(contract);
+  //   };
+  //   web3Api.web3 && contractInstance();
+  // }, [web3Api.web3]);
 
   return (
     <userContext.Provider

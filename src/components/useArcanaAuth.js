@@ -13,14 +13,14 @@ function useArcanaAuth() {
     loggedIn,
     setLoggedIn,
     setAccount,
-    web3init,
-    setweb3init,
+    web3Api, 
+    setWeb3Api
   } = useContext(userContext);
 
   const initializeAuth = async () => {
     await auth.init({ position: "right" });
     setInitialized(true);
-    setweb3init({ provider: auth.provider });
+    setWeb3Api({ provider: auth.provider });
   };
 
   //Social Login
