@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
+
 import bhoomiLogo from "./assets/bhoomiLogo.png";
 import Login from "./Login";
 import { userContext } from "../App";
@@ -19,14 +20,14 @@ function Navbar() {
       )}
       <div className="fixed top-8 left-0 w-screen flex z-[2]">
         <div>
-          <Link to="/">
+          <a href="/">
             {" "}
             <img
               src={bhoomiLogo}
               alt=""
               className="h-12 cursor-pointer ml-8 "
             />
-          </Link>
+          </a>
         </div>
         <div className="flex ml-auto mr-10 space-x-8">
           {loggedIn ? (
@@ -42,7 +43,7 @@ function Navbar() {
                 Buy Bhoomi tokens
               </div>
               <div className="font-pSans font-normal text-base flex justify-center items-center text-[rgba(0,0,0,0.80)] cursor-pointer border px-6  border-[rgba(0,0,0,0.80)] rounded-full hover:bg-black hover:text-white">
-                Validate
+                <Link to="/validate"> Validate</Link>
               </div>
             </>
           ) : (
