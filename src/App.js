@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Profile from "./components/Profile";
 import ThreeScene from "./ThreeScene";
 import React from "react";
+import Modal from "./components/Modal";
 
 export const userContext = React.createContext();
 
@@ -26,11 +27,12 @@ function App() {
       }}
     >
       <div>
-        {/* <ThreeScene/> */}
-        <Navbar />
-        <Profile />
+        {/* <ThreeScene/>
+        <Navbar /> */}
+        {/* <Profile /> */}
         {/* <Model/> */}
         {/* <Home /> */}
+        <Modal/>
       </div>
     </userContext.Provider>
   );
