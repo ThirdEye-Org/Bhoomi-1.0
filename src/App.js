@@ -14,29 +14,29 @@ function App() {
   const [email, setEmail] = React.useState(null);
 
   return (
-      <userContext.Provider
-        value={{
-          loggedIn,
-          setLoggedIn,
-          initialized,
-          setInitialized,
-          account,
-          setAccount,
-          email,
-          setEmail
-        }}
-      >
-    <Router>
-      <div>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/profile" element={<Profile />} />
-        </Routes>
+    <userContext.Provider
+      value={{
+        loggedIn,
+        setLoggedIn,
+        initialized,
+        setInitialized,
+        account,
+        setAccount,
+        email,
+        setEmail
+      }}
+    >
+      <Router>
+        <div>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/profile" element={<Profile />} />
+          </Routes>
         </div>
       </Router>
-      </userContext.Provider>
-  
+    </userContext.Provider>
+
   );
 }
 

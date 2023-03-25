@@ -12,7 +12,7 @@ function ProfileCard() {
   const { account } = useContext(userContext);
   console.log(account);
   return (
-    <div className="scale-75 bg-white w-[612px] h-[862px] shadow-[0_4px_40px_rgba(0,0,0,0.25)] rounded-[50px] flex flex-col items-center relative">
+    <div className="scale-[60%] bg-white w-[612px] h-[862px] shadow-[0_4px_40px_rgba(0,0,0,0.25)] rounded-[50px] flex flex-col items-center relative">
       <div className="absolute ">
         <img src={profileBack} alt="" className="profileback" />
         {/* <img src={Rectangle} alt="" /> */}{" "}

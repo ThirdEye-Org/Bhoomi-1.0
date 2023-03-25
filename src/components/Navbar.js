@@ -4,6 +4,7 @@ import Login from "./Login";
 import { userContext } from "../App";
 import Modal from "./Modal";
 import BuyToken from "./BuyToken";
+import { Link } from "react-router-dom";
 function Navbar() {
   const { loggedIn } = React.useContext(userContext);
   const [buyTokens, setBuyTokens] = useState(false);
@@ -26,8 +27,10 @@ function Navbar() {
         {loggedIn ? (
           <>
             {" "}
-            <div className="font-pSans font-normal text-base flex justify-center items-center text-[rgba(0,0,0,0.80)] cursor-pointer hover:underline  ">
-              User profile
+            <div className="font-pSans font-normal text-base flex justify-center items-center text-[rgba(0,0,0,0.80)] cursor-pointer hover:underline">
+              <Link to="/profile">
+                User profile
+              </Link>
             </div>
             <div
               className="font-pSans font-normal text-base flex justify-center items-center text-[rgba(0,0,0,0.80)] cursor-pointer hover:underline "
