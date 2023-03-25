@@ -4,6 +4,7 @@ import Profile from "./components/Profile";
 import ThreeScene from "./ThreeScene";
 import React from "react";
 import Modal from "./components/Modal";
+import ValidateProperty from "./components/validateProperty";
 
 export const userContext = React.createContext();
 
@@ -32,7 +33,7 @@ function App() {
         {/* <Profile /> */}
         {/* <Model/> */}
         {/* <Home /> */}
-        <Modal/>
+        {/* <Modal/> */}
       </div>
     </userContext.Provider>
   );
