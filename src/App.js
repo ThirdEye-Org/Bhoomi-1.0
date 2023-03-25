@@ -5,10 +5,14 @@ import React, { useState, useEffect } from "react";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import Home from "./components/home";
 import NFTmint from "./abis/NFTmint.json";
+import BMToken from "./abis/BMToken.json";
+import BMToken1155 from "./abis/BMToken1155.json";
+import Bhoomi from "./abis/Bhoomi.json";
+
 import detectEthereumProvider from "@metamask/detect-provider";
 const Web3 = require("web3");
 
-// ABIs
+
 
 export const userContext = React.createContext();
 
@@ -24,7 +28,7 @@ function App() {
     web3: null,
   });
 
-  const [nftmintcontract, setNftmintContract] = useState(null);
+  const [contract, setContract] = useState(null);
   useEffect(() => {
     const loadProvider = async () => {
       const provider = await detectEthereumProvider();
@@ -47,6 +51,7 @@ function App() {
   useEffect(() => {
     const getAccounts = async () => {
       const accounts = await web3Api.web3.eth.getAccounts();
+      // window.location.reload(false);
       console.log(accounts);
       setAccount(accounts[0]);
     };
@@ -58,13 +63,28 @@ function App() {
   useEffect(() => {
     const contractInstance = async () => {
       const nftcontabi = NFTmint.abi;
-      const nftcontadd = "0xE5409D80F93Aa22698C8828A75a340A20980A360";
+      const nftcontadd = "0x2A52f24132F6Cf383aeed6d584D2da1b02fcB27e";
+      const bmtokenabi = BMToken.abi;
+      const bmtokenadd = "0xe017ed1B347fB6CC096ce80ea263C4148e6039D8";
+      const bm1155abi = BMToken1155.abi;
+      const bm1155add = "0x22D679E80AC8e37EE49FC5f6aF35c10e4AD7Ccad";
+      const bhoomiabi = Bhoomi.abi;
+      const bhoomiadd = "0xF38f82a6A27DdA0b0980BDF3867eFC3768ac8b5C";
 
-      let contract = new web3Api.web3.eth.Contract(nftcontabi, nftcontadd);
+      let contract1 = new web3Api.web3.eth.Contract(nftcontabi, nftcontadd);
+      let contract2 = new web3Api.web3.eth.Contract(bmtokenabi, bmtokenadd);
+      let contract3 = new web3Api.web3.eth.Contract(bm1155abi, bm1155add);
+      let contract4 = new web3Api.web3.eth.Contract(bhoomiabi,bhoomiadd);
       console.log("mera\n");
-      console.log(contract);
 
-      setNftmintContract(contract);
+      setContract({
+        nftmint: contract1,
+        bmtoken: contract2,
+        bm1155: contract3,
+        bhoomi:contract4
+      });
+
+      console.log(contract)
     };
     web3Api.web3 && contractInstance();
   }, [web3Api.web3]);
@@ -80,6 +100,8 @@ function App() {
         setAccount,
         email,
         setEmail,
+        contract,
+        setContract
       }}
     >
       <Router>

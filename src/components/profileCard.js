@@ -9,7 +9,7 @@ import blueTick from "./assets/blueTick.svg";
 import { userContext } from "../App";
 
 function ProfileCard() {
-  const { account } = useContext(userContext);
+  const { account,contract } = useContext(userContext);
   console.log(account);
   return (
     <div className="scale-[60%] bg-white w-[612px] h-[862px] shadow-[0_4px_40px_rgba(0,0,0,0.25)] rounded-[50px] flex flex-col items-center relative">
@@ -22,7 +22,7 @@ function ProfileCard() {
         <img src={logo} alt="" className="rounded-[40px]" />
       </div>
       <div className="w-[296px] h-[47px] font-pSans text-[40px] font-bold mt-10">
-        0x12r45...6HJ9
+        {contract.nftmint._address}
       </div>
       <div className="flex text-2xl mt-2 space-x-2">
         <img src={blueTick} alt="" />
