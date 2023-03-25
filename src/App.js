@@ -116,7 +116,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/profile" element={<ValidateProperty />} />
+            <Route path="/validate" element={<ValidateProperty />} />
           </Routes>
         </div>
       </Router>
