@@ -39,7 +39,7 @@ function ProfileCard() {
          Become a Validator
         </span> */}
       </div>
-      <div className="flex flex-row space-x-6 mt-16">
+      <div className="flex flex-row space-x-6 mt-16 px-2 w-max">
         <div>
           <div className="font-pSans text-xl font-light text-[rgba(0,0,0,0.5)] flex justify-center items-center">
             assets owned
@@ -72,7 +72,7 @@ function ProfileCard() {
             validated
           </div>
           <div className="font-pSans font-bold text-[40px] flex justify-center items-center h-[56px]">
-            2
+            0
           </div>
         </div>
         <div>
@@ -84,12 +84,12 @@ function ProfileCard() {
           </div>
         </div>
         <div>
-          <div className="font-pSans text-xl font-light text-[rgba(0,0,0,0.5)] flex justify-center items-center">
+          <div className="font-pSans text-xl font-light text-[rgba(0,0,0,0.5)] flex justify-center items-center w-max">
             Bhoomi Tokens
           </div>
           <div className="font-pSans font-bold text-[40px] flex justify-center items-center h-[56px]">
             <div className="flex space-x-2">
-              <div>69</div>
+              <div>10</div>
               <div className="flex items-center justify-center">
                 <img src={tokenLogo} alt="" />
               </div>
@@ -97,7 +97,7 @@ function ProfileCard() {
           </div>
         </div>
       </div>
-      <div className="w-[532px] h-[75px] flex items-center justify-center p-[20px 24px] bg-[#5A7BF3] rounded-3xl font-pSans color-white font-medium text-[30px] text-white mt-16">
+      <div className="w-[70%] h-[75px] flex items-center justify-center p-[20px 24px] bg-[#5A7BF3] rounded-3xl font-pSans color-white font-medium text-[30px] text-white mt-16">
         log out
       </div>
     </div>

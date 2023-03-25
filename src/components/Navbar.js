@@ -19,7 +19,9 @@ function Navbar() {
       )}
       <div className="fixed top-8 left-0 w-screen flex z-[2]">
         <div>
-          <img src={bhoomiLogo} alt="" className="h-12 cursor-pointer ml-8 " />
+          <a href="/">
+            <img src={bhoomiLogo} alt="" className="h-12 cursor-pointer ml-8 " />
+          </a>
         </div>
         <div className="flex ml-auto mr-10 space-x-8">
           <div className="font-pSans font-normal text-base flex justify-center items-center text-[rgba(0,0,0,0.80)] cursor-pointer hover:underline">
