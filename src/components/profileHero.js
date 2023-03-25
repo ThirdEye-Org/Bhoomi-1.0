@@ -1,6 +1,7 @@
 import React from "react";
 import profileBuilding from "./assets/profileBuilding.png";
 import profilebuilding2 from "./assets/profilebuilding2.png";
+import profilebuilding3 from "./assets/profilebuilding3.png";
 function ProfileHero() {
   return (
     <div className="flex flex-col h-screen justify-center">
@@ -10,7 +11,7 @@ function ProfileHero() {
         Regdgdoho lorem upsim soagha loreoahg ophapsgohapsdhlasdgjoash
         gapgohafdsoiah oiha
       </div>
-      <div className="flex flex-row mt-16 space-x-10">
+      <div className="flex flex-row mt-16 space-x-10 overflow-x-scroll">
         <div className="relative overflow-hidden rounded-2xl ">
           <img src={profileBuilding} alt="" className="  h-96 w-72" />
           <div className="bg-gradient-to-t from-[rgba(0,0,0,0.62)]  rounded-2xl  h-96 w-72 top-0 absolute" />
@@ -32,6 +33,19 @@ function ProfileHero() {
             </div>
             <div className=" text-[rgba(255,255,255,0.79)] font-pSans text-xs italic font-light">
               Invested
+            </div>
+          </div>
+        </div>
+        <div className="relative overflow-hidden rounded-2xl ">
+          <img src={profilebuilding3} alt="" className="  h-96 w-72" />
+          <div className="bg-gradient-to-t from-[rgba(0,0,0,0.62)]  rounded-2xl  h-96 w-72 top-0 absolute" />
+          <div className="absolute bottom-5 w-72 p-4 flex flex-col">
+            <div className="font-semibold  font-pSans text-xl z-[1]   text-white">
+              D21, DLF, Central Delhi, Rajiv  Chowk, 
+              New Delhi - 110055 
+            </div>
+            <div className=" text-[rgba(255,255,255,0.79)] font-pSans text-xs italic font-light">
+              Validated
             </div>
           </div>
         </div>
