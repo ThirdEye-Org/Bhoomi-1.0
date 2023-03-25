@@ -51,10 +51,13 @@ function App() {
 
   useEffect(() => {
     const getAccounts = async () => {
-      const accounts = await web3Api.web3.eth.getAccounts();
+      web3Api.web3.eth.getAccounts().then((accounts) => {
+        console.log(accounts);
+        setAccount(accounts[0]);
+        
+      });
       // window.location.reload(false);
-      console.log(accounts);
-      setAccount(accounts[0]);
+      
     };
     web3Api.web3 && getAccounts();
   }, [web3Api.web3, account]);

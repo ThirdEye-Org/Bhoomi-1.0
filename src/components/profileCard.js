@@ -21,8 +21,10 @@ function ProfileCard() {
       <div className=" flex mt-10 justify-center items-center p-[10px] shadow-[0_4px_45px_rgba(0,0,0,0.2)] rounded-[43px]   h-[378px] w-[378px] z-[1] bg-white ">
         <img src={logo} alt="" className="rounded-[40px]" />
       </div>
-      <div className="w-[296px] h-[47px] font-pSans text-[40px] font-bold mt-10">
-        {contract.nftmint._address}
+      <div className="w-[296px] h-[47px] font-pSans text-[40px] font-bold mt-10 flex items-center justify-center">
+        {account.slice(0, 4) +
+          "..." +
+          account.slice(28, 32)}
       </div>
       <div className=" text-2xl mt-2 ">
         {/* Either */}
@@ -36,7 +38,6 @@ function ProfileCard() {
         {/* <span className="font-pSans italic font-medium text-[rgba(0,0,0,0.5)] cursor-pointer">
          Become a Validator
         </span> */}
-        
       </div>
       <div className="flex flex-row space-x-6 mt-16">
         <div>
