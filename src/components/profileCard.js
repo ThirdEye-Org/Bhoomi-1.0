@@ -7,10 +7,30 @@ import profileBack from "./assets/profileBack.png";
 import tokenLogo from "./assets/tokenLogo.png";
 import blueTick from "./assets/blueTick.svg";
 import { userContext } from "../App";
+const web3 = require('web3')
+
 
 function ProfileCard() {
-  const { account,contract } = useContext(userContext);
-  console.log(account);
+  const { account,contract ,web3Api} = useContext(userContext);
+  const [tokens,setTokens]=React.useState(100);
+  React.useEffect(()=>{
+    const getTokens = async ()=>{
+    
+      var ans ;
+      contract.bmtoken.methods.balanceOf(account).call().then((res)=>{
+        // console.log(res , Math.pow(10,18))
+        res = res / Math.pow(10,18)
+        setTokens(res)
+        console.log(res)
+      });
+      
+
+    
+  }
+  getTokens();
+  },[])
+  
+  // console.log(account);
   return (
     <div className="scale-[60%] bg-white w-[612px] h-[862px] shadow-[0_4px_40px_rgba(0,0,0,0.25)] rounded-[50px] flex flex-col items-center relative">
       <div className="absolute ">
@@ -22,7 +42,8 @@ function ProfileCard() {
         <img src={logo} alt="" className="rounded-[40px]" />
       </div>
       <div className="w-[296px] h-[47px] font-pSans text-[40px] font-bold mt-10 flex items-center justify-center">
-        {account.slice(0, 4) +
+        {
+          account !==null && account.slice(0, 4) +
           "..." +
           account.slice(28, 32)}
       </div>
@@ -89,7 +110,7 @@ function ProfileCard() {
           </div>
           <div className="font-pSans font-bold text-[40px] flex justify-center items-center h-[56px]">
             <div className="flex space-x-2">
-              <div>69</div>
+              <div>{tokens}</div>
               <div className="flex items-center justify-center">
                 <img src={tokenLogo} alt="" />
               </div>

@@ -33,7 +33,9 @@ function Navbar() {
           </div>
 
           <div className="font-pSans font-normal text-base flex justify-center items-center text-[rgba(0,0,0,0.80)] cursor-pointer border px-6  border-[rgba(0,0,0,0.80)] rounded-full hover:bg-black hover:text-white">
+            <Link to="/validate">
             Validate
+            </Link>
           </div>
         </div>
       </div>

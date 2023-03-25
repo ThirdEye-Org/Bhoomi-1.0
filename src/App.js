@@ -22,6 +22,7 @@ function App() {
   const [initialized, setInitialized] = React.useState(false);
   const [account, setAccount] = React.useState(null);
   const [email, setEmail] = React.useState(null);
+  const [balance, setBalance] = React.useState(0);
 
   //web3 state
   const [web3Api, setWeb3Api] = useState({
@@ -105,7 +106,8 @@ function App() {
         email,
         setEmail,
         contract,
-        setContract
+        setContract,
+        web3Api
       }}
     >
       <Router>
@@ -114,6 +116,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/profile" element={<ValidateProperty />} />
           </Routes>
         </div>
       </Router>

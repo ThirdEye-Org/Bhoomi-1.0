@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import tokenLogo2 from "./assets/tokenLogo2.png";
 import glow from "./assets/glow.png";
 import whiteTick from "./assets/whiteTick.svg";
+import { userContext } from "../App";
 function BuyToken() {
+  const { contract , account } = React.useContext(userContext);
   const [tokens, setTokens] = useState(0);
   const toggleCountAdd = () => {
     setTokens(tokens + 1);
@@ -12,6 +14,23 @@ function BuyToken() {
       setTokens(tokens - 1);
     }
   };
+
+  const buyToken = async () => {
+    try {
+      console.log(tokens,account)
+      console.log(contract.bhoomi)
+          
+      
+      await contract.bhoomi.methods.buyFundToken(tokens).send({
+            from: account,
+            value: tokens*1000 + 100,
+          });
+      
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
   return (
     <div className="flex font-pSans items-center h-[25rem] p-12 space-x-6 overflow-hidden">
       <img src={tokenLogo2} alt="" className="z-[1] h-60" />
@@ -54,7 +73,7 @@ function BuyToken() {
             </div>
           </div>
         </div>
-        <div className="h-12 w-full bg-[#5A7BF3] rounded-2xl flex text-white items-center justify-center space-x-3 mt-6 cursor-pointer">
+        <div className="h-12 w-full bg-[#5A7BF3] rounded-2xl flex text-white items-center justify-center space-x-3 mt-6 cursor-pointer" onClick={()=>{buyToken();}}>
           <img src={whiteTick} alt="" className="h-1/2" />
           <span className="fent-medium select-none">Purchase securely</span>
         </div>
