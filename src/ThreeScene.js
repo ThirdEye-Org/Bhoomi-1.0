@@ -3,6 +3,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import Modal from './components/Modal';
 import BuyToken from './components/BuyToken';
+import Property from './components/property';
 function ThreeScene() {
   // var scene;
   const mount = useRef(null);
@@ -77,7 +78,7 @@ function ThreeScene() {
         // console.log(intersects);
         const result = intersects.find(obj => obj.object.name === "House_World_ap_0")
         // result.object.material.color.r=255;
-        result.object.position.x += 30;
+        // result.object.position.x += 30;
         console.log("clicked on building")
         handlemodal();
         // window.alert("Ahu ahu")
@@ -188,7 +189,7 @@ function ThreeScene() {
     <>
     {
       isModal &&
-      <Modal children={<BuyToken/>} handlemodal={handlemodal}/>
+      <Modal children={ <Property/> } handlemodal={handlemodal}/>
       }
       <canvas className='ml-28' ref={mount} />
       <div className="textt absolute top-40 ml-10 flex flex-col gap-4">
