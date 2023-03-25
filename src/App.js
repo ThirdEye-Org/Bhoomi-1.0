@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import Home from "./components/home";
 import NFTmint from "./abis/NFTmint.json";
+import detectEthereumProvider from "@metamask/detect-provider";
 const Web3 = require("web3");
 
 // ABIs
@@ -23,46 +24,50 @@ function App() {
     web3: null,
   });
 
-  console.log(web3Api);
+  const [nftmintcontract, setNftmintContract] = useState(null);
+  useEffect(() => {
+    const loadProvider = async () => {
+      const provider = await detectEthereumProvider();
 
-  // const [nftmintcontract, setNftmintContract] = useState(null);
-  // useEffect(() => {
-  //   const loadProvider = async () => {
-  //     if (web3Api.provider) {
-  //       setWeb3Api({
-  //         web3: new Web3(web3Api.provider),
-  //         provider: web3Api.provider,
-  //       });
-  //     } else {
-  //       console.error("provider is not setted");
-  //     }
-  //   };
+      if (provider) {
+        provider.request({ method: "eth_requestAccounts" });
+        // console.log(provider);
+        setWeb3Api({
+          web3: new Web3(provider),
+          provider,
+        });
+      } else {
+        console.error("Install Metamask");
+      }
+    };
 
-  //    loadProvider();
-  // }, [web3Api.provider]);
+    loadProvider();
+  }, []);
 
-  // useEffect(() => {
-  //   const getAccounts = async () => {
-  //     const accounts = await web3Api.web3.eth.getAccounts();
-  //     console.log(accounts);
-  //     setAccount(accounts[0]);
-  //   };
-  //   web3Api.web3 && getAccounts();
-  // }, [web3Api.web3, account]);
+  useEffect(() => {
+    const getAccounts = async () => {
+      const accounts = await web3Api.web3.eth.getAccounts();
+      console.log(accounts);
+      setAccount(accounts[0]);
+    };
+    web3Api.web3 && getAccounts();
+  }, [web3Api.web3, account]);
 
-  // //creating a contract instance
+  //creating a contract instance
 
-  // useEffect(() => {
-  //   const contractInstance = async () => {
-  //     const cont_abi = NFTmint.abi;
-  //     const cont_add = "0x95CF384debE358258D0fFA736B35B9a53A86eA1B";
-  //     let contract = new web3Api.web3.eth.Contract(cont_abi, cont_add);
-  //     console.log(contract);
+  useEffect(() => {
+    const contractInstance = async () => {
+      const nftcontabi = NFTmint.abi;
+      const nftcontadd = "0xE5409D80F93Aa22698C8828A75a340A20980A360";
 
-  //     setNftmintContract(contract);
-  //   };
-  //   web3Api.web3 && contractInstance();
-  // }, [web3Api.web3]);
+      let contract = new web3Api.web3.eth.Contract(nftcontabi, nftcontadd);
+      console.log("mera\n");
+      console.log(contract);
+
+      setNftmintContract(contract);
+    };
+    web3Api.web3 && contractInstance();
+  }, [web3Api.web3]);
 
   return (
     <userContext.Provider
