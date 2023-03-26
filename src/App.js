@@ -2,7 +2,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Profile from "./components/Profile";
 import React, { useState, useEffect } from "react";
-import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
+import { Routes, Route, HashRouter as Router } from "react-router-dom";
 import Home from "./components/home";
 import ValidateProperty from "./components/validateProperty";
 import NFTmint from "./abis/NFTmint.json";
