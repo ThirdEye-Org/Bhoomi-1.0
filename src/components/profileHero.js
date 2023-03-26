@@ -24,7 +24,7 @@ function ProfileHero() {
         Fractional NFTs are the portion of NFT land you are assigned, backed with the actual value of the land.
       </div>
       <div className="flex flex-row mt-16 space-x-10">
-        <div className="relative overflow-hidden rounded-2xl hover:scale-110 transition-all hover:shadow-md hover:shadow-black" onClick={handlemodal}>
+        <div className="relative w-max overflow-hidden rounded-2xl hover:scale-110 transition-all hover:shadow-md hover:shadow-black" onClick={handlemodal}>
           <img src={profileBuilding} alt="" className="  h-96 w-72" />
           <div className="bg-gradient-to-t from-[rgba(0,0,0,0.62)]  rounded-2xl  h-96 w-72 top-0 absolute" />
           <div className="absolute bottom-5 w-72 p-4 flex flex-col">
@@ -36,7 +36,7 @@ function ProfileHero() {
             </div>
           </div>
         </div>
-        <div className="relative overflow-hidden rounded-2xl hover:scale-110 transition-all hover:shadow-md hover:shadow-black">
+        <div className="relative w-max overflow-hidden rounded-2xl hover:scale-110 transition-all hover:shadow-md hover:shadow-black">
           <img src={profilebuilding2} alt="" className="  h-96 w-72" />
           <div className="bg-gradient-to-t from-[rgba(0,0,0,0.62)]  rounded-2xl  h-96 w-72 top-0 absolute" />
           <div className="absolute bottom-5 w-72 p-4 flex flex-col">
@@ -48,7 +48,7 @@ function ProfileHero() {
             </div>
           </div>
         </div>
-        <div className="relative overflow-hidden rounded-2xl hover:scale-110 transition-all hover:shadow-md hover:shadow-black">
+        <div className="relative w-max overflow-hidden rounded-2xl hover:scale-110 transition-all hover:shadow-md hover:shadow-black">
           <img src={profilebuilding3} alt="" className="  h-96 w-72" />
           <div className="bg-gradient-to-t from-[rgba(0,0,0,0.62)]  rounded-2xl  h-96 w-72 top-0 absolute" />
           <div className="absolute bottom-5 w-72 p-4 flex flex-col">

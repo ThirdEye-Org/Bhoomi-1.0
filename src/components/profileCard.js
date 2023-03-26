@@ -12,7 +12,7 @@ const web3 = require('web3')
 
 function ProfileCard() {
   const { account,contract ,web3Api} = useContext(userContext);
-  const [tokens,setTokens]=React.useState(100);
+  const [tokens,setTokens]=React.useState(0);
   React.useEffect(()=>{
     const getTokens = async ()=>{
     
